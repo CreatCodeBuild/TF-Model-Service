@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import cv2 as cv
 
 class DefaultModelServer():
 	def __init__(self):
@@ -31,8 +32,7 @@ server = DefaultModelServer()
 from PIL import Image
 
 for i in range(2):
-	im = Image.open("0.png")
-	image = np.array(im.getdata(), np.float32).reshape(im.size[1], im.size[0], 3)
-	result = server.serve(image)
+	im = cv.imread(str(i) + ".png", cv.IMREAD_COLOR)
+	result = server.serve(im)
 	print(result)
 
