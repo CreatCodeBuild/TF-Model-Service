@@ -29,12 +29,10 @@ class DefaultModelServer():
 server = DefaultModelServer()
 
 from PIL import Image
-im = Image.open("1.png")
 
-
-
-image = np.array(im.getdata(), np.float32).reshape(im.size[1], im.size[0], 3)
-#print(type(image), image.shape)
-result = server.serve(image)
-print(result)
+for i in range(2):
+	im = Image.open("0.png")
+	image = np.array(im.getdata(), np.float32).reshape(im.size[1], im.size[0], 3)
+	result = server.serve(image)
+	print(result)
 
