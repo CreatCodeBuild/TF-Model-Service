@@ -9,6 +9,7 @@ class DefaultModelServer():
 		self.new_saver.restore(self.sess, 'E:\Git Repo\TF-Model-Service\model\default.ckpt')
 		self.test_prediction = tf.get_default_graph().get_tensor_by_name('test/single_prediction:0')
 		self.single_input = tf.get_default_graph().get_tensor_by_name('test/single_input:0')
+		print('DefaultModelServer is up')
 
 	def compute(self, inputData):
 		'''
@@ -23,7 +24,7 @@ class DefaultModelServer():
 		if image.shape[2] != 1:
 			image = tf.image.rgb_to_grayscale(image)
 		image = tf.image.resize_images(image, (32, 32))
-		return [image.eval(session=self.sess)]
+		return [image.eval(session=self.sess)] # todo: should to grayscale and resize outside and use OpenCV maybe?
 
 	def serve(self, image):
 		return self.compute(self.transform_data(image))
