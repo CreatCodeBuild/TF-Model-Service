@@ -1,0 +1,25 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TF-Model-Service",
+		"_postman_id": "c49c448b-cc2f-0b19-68eb-78b5a49e7940",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/single-digit",
+			"request": {
+				"url": "http://127.0.0.1:5000/single-digit",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Here should be your raw/binary data, which, in this case, a picture(PNG, JPG...)"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
