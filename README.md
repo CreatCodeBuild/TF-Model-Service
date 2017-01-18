@@ -10,3 +10,8 @@ python TF-Model-Service.py
 `bash
 python model.py
 `
+### API
+rest: address:port/single-digit  
+method: POST  
+body: raw  
+see .postman_collection.json for details
