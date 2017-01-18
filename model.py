@@ -2,11 +2,16 @@ import tensorflow as tf
 import numpy as np
 import cv2 as cv
 
+# change it to your own
+graph_path = 'E:\Git Repo\TF-Model-Service\model\default.ckpt.meta'
+weights_path = 'E:\Git Repo\TF-Model-Service\model\default.ckpt'
+
+
 class DefaultModelServer():
 	def __init__(self):
 		self.sess = tf.Session()
-		self.new_saver = tf.train.import_meta_graph('E:\Git Repo\TF-Model-Service\model\default.ckpt.meta')
-		self.new_saver.restore(self.sess, 'E:\Git Repo\TF-Model-Service\model\default.ckpt')
+		self.new_saver = tf.train.import_meta_graph(graph_path)
+		self.new_saver.restore(self.sess, weights_path)
 		self.test_prediction = tf.get_default_graph().get_tensor_by_name('test/single_prediction:0')
 		self.single_input = tf.get_default_graph().get_tensor_by_name('test/single_input:0')
 		print('DefaultModelServer is up')
