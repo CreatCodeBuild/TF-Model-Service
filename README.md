@@ -19,4 +19,4 @@ see .postman_collection.json for details
 
 ### Video
 [如何使用 How to use](http://www.bilibili.com/video/av8476660/)  
-[如何实现 How to implement]()
+[如何实现 How to implement](http://www.bilibili.com/video/av8478393/)
