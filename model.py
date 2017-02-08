@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 import cv2 as cv
 
+
 # change it to your own
 graph_path = 'E:\Git Repo\TF-Model-Service\model\default.ckpt.meta'
 weights_path = 'E:\Git Repo\TF-Model-Service\model\default.ckpt'
@@ -29,10 +30,15 @@ class DefaultModelServer():
 		if image.shape[2] != 1:
 			image = tf.image.rgb_to_grayscale(image)
 		image = tf.image.resize_images(image, (32, 32))
-		return [image.eval(session=self.sess)] # todo: should to grayscale and resize outside and use OpenCV maybe?
+		print('transform', type(image))
+		ret = [image.eval(session=self.sess)]  # todo: should to grayscale and resize outside and use OpenCV maybe?
+		print('transform', type(ret[0]))
+		return ret
 
 	def serve(self, image):
-		return self.compute(self.transform_data(image))
+		ret = self.compute(self.transform_data(image))
+		print('serve', type(ret))
+		return ret
 
 
 # Test
